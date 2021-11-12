@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/merge.css">
+
+    <title>conquerCode</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#"><strong>conquerCode</strong></a>
+          <div class="collapse navbar-collapse" id="Navbar">
+              <ul class="navbar-nav mr-auto">
+                    <button class="tablinks" onclick="openCity(event, 'ques')">Question</button>
+                    <button class="tablinks" onclick="openCity(event, 'test')">Test Cases</button>
+                    <button class="tablinks" onclick="openCity(event, 'asked')">Asked by</button>
+                    <button class="tablinks" onclick="openCity(event, 'sol')">Solution</button>
+                    <button class="tablinks" onclick="openCity(event, 'time')">Complexity</button>
+                    <button class="tablinks" onclick="openCity(event, 'prog')">Program</button>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+
+  <div class="container">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="./index.html">Problems</a></li>
+        <!--   <li class="breadcrumb-item"><a href="./problems.html">Problems</a></li> -->
+          <li class="breadcrumb-item active" aria-current="page">Two Sum</li>
+        </ol>
+      </nav>
+
+
+
+
+
+    <div class="row row-content">
+        <div class="col-12 col-sm-12 col-md-12">
+
+    <div id="ques" class="tabcontent" style="display:block">
+      <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+        You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+      <h5>Example:</h5>
+      <div class="example">
+        <p>Given nums = [2, 7, 11, 15], target = 9,</p>
+        <p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
+        <p>return [0, 1].</p>
+      </div>
+
+      <button type="button" class="collapsible">Hint 1</button>
+      <div class="problem">
+        <p>A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations.</p>
+      </div>
+
+      <button type="button" class="collapsible">Hint 2</button>
+      <div class="problem">
+        <p>So, if we fix one of the numbers, say<br>x</p>
+        <p>we have to scan the entire array to find the next number<br>y</p>
+        <p>which is:<br>value - x</p>
+        <p>where value is the input parameter. Can we change our array somehow so that this search becomes faster?</p>
+      </div>
+
+      <button type="button" class="collapsible">Hint 3</button>
+      <div class="problem">
+        <p>The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?</p>
+      </div>
+    </div>
+
+    <div id="test" class="tabcontent">
+      <div class="example">
+        <p>Given nums = [5, 1, 9, 12], target = 14,</p>
+        <p>Because nums[0] + nums[2] = 5 + 9 = 14,</p>
+        <p>return [0, 2].</p>
+      </div>
+      <div class="example">
+        <p>Given nums = [27, 7, 3, 14, 12, 13, 45], target = 20,</p>
+        <p>Because nums[1] + nums[5] = 7 + 13 = 20,</p>
+        <p>return [1, 5].</p>
+      </div>
+    </div>
+
+    <div id="asked" class="tabcontent">
+      <div class="container">
+        <div class="row row-content">
+          <div class="col-6 col-sm-4 col-md-4">
+            <div class="card">
+              <img class="card-img-top" src="img/google.png" alt="goolge">
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-4">
+            <div class="card">
+              <img class="card-img-top" src="img/fb.png" alt="goolge">
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-4">
+            <div class="card">
+              <img class="card-img-top" src="img/amazon.png" alt="goolge">
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-4">
+            <div class="card">
+              <img class="card-img-top" src="img/micro.png" alt="goolge">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<div id="sol" class="tabcontent">
+<?prettify linenums=1?>
+<pre class="prettyprint">
+  def twoSum(nums, target):
+      comp = None
+      hash = dict()
+      for idx,val in enumerate(nums):
+          comp = target - val
+          if comp not in hash:
+              hash[val] = idx
+          else:
+              hashIdx = hash.get(comp)
+              arr = [hashIdx,idx]
+              break
+      return arr
+</pre>
+
+</div>
+
+<div id="prog" class="tabcontent">
+  <?prettify linenums=1?>
+<pre class="prettyprint">
+  class Solution:
+      def twoSum(self, nums, target):
+          comp = None
+          hash = dict()
+          for idx,val in enumerate(nums):
+              comp = target - val
+              if comp not in hash:
+                  hash[val] = idx
+              else:
+                  hashIdx = hash.get(comp)
+                  arr = [hashIdx,idx]
+                  break
+          return arr
+  def main():
+      obj = Solution()
+      elements = list()
+      #test case
+      #elements = [2, 7, 11, 15]
+      #tar = 9 #---> result: [0,1]
+      while True:
+          n = input('Enter an int value: ')
+          if n == 'done':
+              break;
+          else:
+              n = int(n)
+              elements.append(n)
+
+      tar = int(input('Enter targetted integer: '))
+
+      result = obj.twoSum(elements,tar)
+      print('result is:',result)
+
+  if __name__ == '__main__':
+      main()
+
+</pre>
+</div>
+<div class="container">
+  <div class="row row-content align-items-center">
+    <div id="time" class="tabcontent col-12 col-sm-12 col-md-12 align-items-center">
+        <div class="card">
+          <h3 class="card-header text-white">Time Complexity</h3>
+          <div class="card-body">
+              <h4>O(n)</h4>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-header text-white">Space Complexity</h3>
+          <div class="card-body">
+              <h4>O(n)</h4>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+    <footer class="footer">
+        <div class="container">
+
+           <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright conquerCode</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+coll[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var content = this.nextElementSibling;
+if (content.style.display === "block") {
+  content.style.display = "none";
+} else {
+  content.style.display = "block";
+}
+});
+}
+</script>
+<script  src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=python&amp;skin=sons-of-obsidian"></script>
+</body>
+
+</html>

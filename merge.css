@@ -1,0 +1,141 @@
+.row-header{
+  margin: 0px auto;
+  padding: 0px auto;
+}
+
+.row-content{
+  margin: 0px auto;
+  padding: 50px 0px 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 400px;
+}
+
+.footer{
+  background-color: #070725;/*#1b1f26;*/
+  color: grey;
+  margin:0px auto;
+  padding: 20px 0px 20px 0px;
+}
+
+.jumbotron{
+  padding: 70px 30px 70px 30px;
+  margin: 0px auto;
+  background: #9575CD;
+  color: floralwhite;
+}
+
+body{
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+  font-family: times;
+  font-size: 18px;
+  background-color: black;/*#070711;/*#070708;/*#0e0f12;*/
+  color: floralwhite;
+}
+
+.navbar-dark{
+  background-color: #070725;/*#0f1120;/*#1b1f26;*/
+}
+.breadcrumb{
+  background-color: #070715;/*#070713;/*#070708;*/
+  margin-top: 25px;
+}
+
+.row-content{
+  padding: 0px;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  border-top: none;
+}
+.tablinks{
+  cursor: pointer;
+  background-color: #070730;/*#0f1114;/*#1c2124;*/
+  color: grey;
+  border-color: black;
+}
+.tablinks:hover {
+  background-color: #070740;
+  border-color: red;
+}
+.tablinks:focus,.tablinks:active {
+   outline: none !important;
+   border-color: #070780;
+   box-shadow: none;
+}
+
+.row{
+  border-color: black;
+}
+
+
+.example{
+  padding-left: 10px;
+  background-color: #070713;/*#17191c;*/
+}
+
+.collapsible {
+  background-color: #070713;/*#17191c;*/
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border-color: black;
+  text-align: left;
+  margin-bottom: 1px;
+}
+.collapsible:hover {
+  background-color: #070719;/*#0f1114;*/
+  border-color: red;
+  color: grey;
+}
+.collapsible:focus,.collapsible:active {
+   outline: none !important;
+   box-shadow: none;
+   border-color: red;
+}
+.problem {
+  padding: 10px 18px 0px;
+  display: none;
+  overflow: hidden;
+  background-color: #070709;/*#111214;/*#0f1012;*/
+  align-content: center;
+}
+.card{
+  border-color: red;
+  margin-bottom: 10px;
+}
+
+.card-header{
+  background-color: #070719;
+  text-align: center;
+}
+.card-body{
+  text-align: center;
+  background-color: black;
+}
+
+.btn{
+  width: 100%;
+  padding: 18px;
+  color: white;
+  font-size: 19px;
+  text-align: left;
+  margin-bottom: 3px;
+  background-color: #070713;;
+}
+
+.btn:hover {
+  background-color: #070719;
+  color: grey;
+  border-color: red;
+}
+
+
+.btn:focus,.btn:active {
+   outline: none !important;
+   border-color: red;
+   box-shadow: none;
+}
